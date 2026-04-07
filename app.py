@@ -30,6 +30,13 @@ PORTAL_TOOLS = [
         "url": "https://biochoric-cryo-toolbox-production.up.railway.app/",
         "icon": "snowflake",
     },
+    {
+        "name": "FlowBot-K",
+        "description": "Dual-pump gradient CPA perfusion control for organ cryopreservation",
+        "url": "https://github.com/tony-biochoric/FlowBot-K",
+        "icon": "pump",
+        "external": True,
+    },
 ]
 
 
@@ -58,6 +65,9 @@ def index():
     token = _make_token()
     tools = []
     for t in PORTAL_TOOLS:
-        sep = "&" if "?" in t["url"] else "?"
-        tools.append({**t, "url": f"{t['url']}{sep}auth_token={token}"})
+        if t.get("external"):
+            tools.append(t)
+        else:
+            sep = "&" if "?" in t["url"] else "?"
+            tools.append({**t, "url": f"{t['url']}{sep}auth_token={token}"})
     return render_template("index.html", tools=tools)
