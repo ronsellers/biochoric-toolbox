@@ -244,9 +244,10 @@
   </div>
 
   <div class="grid">
-    <a href="https://biochoric-inventory-tracker-production.up.railway.app/" class="card" target="_blank" rel="noopener">
+    {% for tool in tools %}
+    <a href="{{ tool.url }}" class="card" target="_blank" rel="noopener">
       <div class="card-graphic">
-        <!-- Clipboard / inventory icon -->
+        {% if tool.icon == "clipboard" %}
         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="16" y="12" width="48" height="58" rx="6" stroke="var(--accent)" stroke-width="3" fill="var(--icon-bg)"/>
           <rect x="28" y="6" width="24" height="12" rx="4" stroke="var(--accent)" stroke-width="3" fill="var(--surface)"/>
@@ -257,19 +258,7 @@
           <rect x="44" y="48" width="16" height="16" rx="3" fill="var(--accent)" opacity="0.15"/>
           <path d="M49 54l3 3 5-5" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      </div>
-      <div class="card-content">
-        <div>
-          <h2>Inventory Tracker</h2>
-          <p>Chemical and supply inventory across all lab locations — Berkeley, TIPS, A&M, and Surgery</p>
-        </div>
-        <span class="arrow">&rarr;</span>
-      </div>
-    </a>
-
-    <a href="https://kidney-supercooling-dashboard.up.railway.app/" class="card" target="_blank" rel="noopener">
-      <div class="card-graphic">
-        <!-- Thermometer / kidney cooling icon -->
+        {% elif tool.icon == "thermometer" %}
         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="34" y="8" width="12" height="44" rx="6" stroke="var(--accent)" stroke-width="3" fill="var(--icon-bg)"/>
           <circle cx="40" cy="60" r="12" stroke="var(--accent)" stroke-width="3" fill="var(--icon-bg)"/>
@@ -278,20 +267,50 @@
           <line x1="48" y1="22" x2="54" y2="22" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
           <line x1="48" y1="30" x2="52" y2="30" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
           <line x1="48" y1="38" x2="54" y2="38" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
-          <!-- Snowflake accents -->
           <path d="M18 20l4 4m0-4l-4 4" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
           <path d="M62 40l4 4m0-4l-4 4" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
           <path d="M20 50l3 3m0-3l-3 3" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
         </svg>
+        {% elif tool.icon == "snowflake" %}
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Main crystal axes -->
+          <line x1="40" y1="8" x2="40" y2="72" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="12" y1="24" x2="68" y2="56" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="12" y1="56" x2="68" y2="24" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Center -->
+          <circle cx="40" cy="40" r="5" fill="var(--accent)" opacity="0.25"/>
+          <circle cx="40" cy="40" r="2" fill="var(--accent)" opacity="0.6"/>
+          <!-- Top branch -->
+          <path d="M40 18l-6 6m6-6l6 6" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Bottom branch -->
+          <path d="M40 62l-6-6m6 6l6-6" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Upper-right branch -->
+          <path d="M58 28l-7 1m7-1l-1 7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Lower-left branch -->
+          <path d="M22 52l7-1m-7 1l1-7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Upper-left branch -->
+          <path d="M22 28l7 1m-7-1l1 7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Lower-right branch -->
+          <path d="M58 52l-7-1m7 1l-1-7" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Molecule dots -->
+          <circle cx="40" cy="14" r="2.5" fill="var(--accent)" opacity="0.5"/>
+          <circle cx="40" cy="66" r="2.5" fill="var(--accent)" opacity="0.5"/>
+          <circle cx="62" cy="26" r="2.5" fill="var(--accent)" opacity="0.5"/>
+          <circle cx="18" cy="54" r="2.5" fill="var(--accent)" opacity="0.5"/>
+          <circle cx="18" cy="26" r="2.5" fill="var(--accent)" opacity="0.5"/>
+          <circle cx="62" cy="54" r="2.5" fill="var(--accent)" opacity="0.5"/>
+        </svg>
+        {% endif %}
       </div>
       <div class="card-content">
         <div>
-          <h2>Kidney Supercooling Dashboard</h2>
-          <p>Real-time temperature monitoring and data visualization for supercooling experiments</p>
+          <h2>{{ tool.name }}</h2>
+          <p>{{ tool.description }}</p>
         </div>
         <span class="arrow">&rarr;</span>
       </div>
     </a>
+    {% endfor %}
   </div>
 
   <script>

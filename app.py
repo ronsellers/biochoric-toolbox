@@ -24,6 +24,12 @@ PORTAL_TOOLS = [
         "url": "https://kidney-supercooling-dashboard.up.railway.app/",
         "icon": "thermometer",
     },
+    {
+        "name": "Cryo Toolbox",
+        "description": "Thermodynamic modeling for aqueous cryoprotectant solutions — water activity, osmolality, and liquidus curves",
+        "url": "https://biochoric-cryo-toolbox-production.up.railway.app/",
+        "icon": "snowflake",
+    },
 ]
 
 
