@@ -37,6 +37,13 @@ PORTAL_TOOLS = [
         "icon": "pump",
         "external": True,
     },
+    {
+        "name": "Vitrification Dashboard",
+        "description": "CPA loading protocols, hemodynamic tracking, and organ vitrification monitoring",
+        "url": "#",
+        "icon": "vit",
+        "coming_soon": True,
+    },
 ]
 
 
