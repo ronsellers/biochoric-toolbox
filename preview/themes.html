@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="linear">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biochoric Toolbox — Theme Comparison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;900&family=Chakra+Petch:wght@500;600;700&family=Geist:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BASE
+============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --tab-h: 58px;
+  --thesis-h: 46px;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  transition: background 0.45s ease, color 0.45s ease, border-color 0.45s ease;
+}
+body {
+  position: relative;
+  overflow-x: hidden;
+  padding-top: calc(var(--tab-h) + var(--thesis-h));
+}
+body, .tab-bar, .thesis-strip, .tool-card, .card-vis, .card-footer, .hero h1, .card-body h2,
+.card-body p, .hero-sub, .tab, .hero-eyebrow, .card-tag, .site-footer {
+  transition: background 0.45s ease, color 0.45s ease, border-color 0.45s ease,
+              box-shadow 0.45s ease, opacity 0.45s ease;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; color: inherit; cursor: pointer; }
+
+/* ============================================================
+   THEMES
+============================================================ */
+
+/* 01 · LINEAR — dev tool calm */
+:root[data-theme="linear"] {
+  --bg: #08090a;
+  --bg-elev: #0f1012;
+  --surface: #101114;
+  --surface-hi: #16181c;
+  --ink: #f4f4f5;
+  --ink-dim: #a1a1aa;
+  --mute: #61626b;
+  --rule: rgba(255,255,255,0.08);
+  --rule-hi: rgba(255,255,255,0.16);
+  --accent: #7170ff;
+  --accent-soft: rgba(113,112,255,0.12);
+  --sheen: rgba(255,255,255,0.05);
+
+  --font-display: 'Geist', system-ui, sans-serif;
+  --font-body: 'Geist', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --h1-weight: 600;
+  --h1-letter: -0.03em;
+  --h1-transform: none;
+  --h2-weight: 600;
+  --h2-letter: -0.02em;
+  --h2-transform: none;
+
+  --radius: 10px;
+  --card-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 24px 48px rgba(0,0,0,0.45);
+}
+
+/* 02 · STRIPE — airy professional SaaS */
+:root[data-theme="stripe"] {
+  --bg: #f6f9fc;
+  --bg-elev: #ffffff;
+  --surface: #ffffff;
+  --surface-hi: #ffffff;
+  --ink: #0a2540;
+  --ink-dim: #425466;
+  --mute: #8898aa;
+  --rule: #e3ebf6;
+  --rule-hi: #c1ccdc;
+  --accent: #635bff;
+  --accent-soft: #eef0ff;
+  --sheen: rgba(99,91,255,0.06);
+
+  --font-display: 'Inter Tight', system-ui, sans-serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --h1-weight: 600;
+  --h1-letter: -0.03em;
+  --h1-transform: none;
+  --h2-weight: 600;
+  --h2-letter: -0.02em;
+  --h2-transform: none;
+
+  --radius: 14px;
+  --card-shadow: 0 1px 1px rgba(10,37,64,0.04), 0 12px 32px rgba(10,37,64,0.08);
+}
+
+/* 03 · BLOOMBERG — amber terminal */
+:root[data-theme="bloomberg"] {
+  --bg: #000000;
+  --bg-elev: #070400;
+  --surface: #0b0800;
+  --surface-hi: #140e00;
+  --ink: #ff9d0a;
+  --ink-dim: #b87300;
+  --mute: #553400;
+  --rule: #2b1a00;
+  --rule-hi: #553400;
+  --accent: #ff9d0a;
+  --accent-soft: #1a1000;
+  --sheen: rgba(255,157,10,0.07);
+  --pos: #33ff66;
+  --neg: #ff3355;
+
+  --font-display: 'JetBrains Mono', ui-monospace, monospace;
+  --font-body: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --h1-weight: 700;
+  --h1-letter: 0.01em;
+  --h1-transform: uppercase;
+  --h2-weight: 700;
+  --h2-letter: 0.02em;
+  --h2-transform: uppercase;
+
+  --radius: 0px;
+  --card-shadow: 0 0 0 1px var(--rule-hi);
+}
+
+/* 04 · MEDICAL — Siemens Healthineers calm */
+:root[data-theme="medical"] {
+  --bg: #eff4f7;
+  --bg-elev: #ffffff;
+  --surface: #ffffff;
+  --surface-hi: #ffffff;
+  --ink: #102a43;
+  --ink-dim: #486581;
+  --mute: #829ab1;
+  --rule: #dbe5ec;
+  --rule-hi: #a4b9c9;
+  --accent: #00a39a;
+  --accent-soft: #d7f4f1;
+  --sheen: rgba(0,163,154,0.07);
+
+  --font-display: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --h1-weight: 500;
+  --h1-letter: -0.015em;
+  --h1-transform: none;
+  --h2-weight: 500;
+  --h2-letter: -0.01em;
+  --h2-transform: none;
+
+  --radius: 18px;
+  --card-shadow: 0 2px 4px rgba(16,42,67,0.04), 0 16px 36px rgba(16,42,67,0.08);
+}
+
+/* 05 · LEICA — precision instrument */
+:root[data-theme="leica"] {
+  --bg: #ffffff;
+  --bg-elev: #f6f6f4;
+  --surface: #ffffff;
+  --surface-hi: #ffffff;
+  --ink: #0a0a0a;
+  --ink-dim: #3a3a3a;
+  --mute: #8c8c8c;
+  --rule: #1a1a1a;
+  --rule-hi: #0a0a0a;
+  --accent: #cc0000;
+  --accent-soft: #fff4f4;
+  --sheen: rgba(0,0,0,0.03);
+
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Archivo', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --h1-weight: 900;
+  --h1-letter: -0.04em;
+  --h1-transform: none;
+  --h2-weight: 800;
+  --h2-letter: -0.03em;
+  --h2-transform: none;
+
+  --radius: 0px;
+  --card-shadow: none;
+}
+
+/* 06 · MISSION CONTROL — NASA technical */
+:root[data-theme="mission"] {
+  --bg: #0c1319;
+  --bg-elev: #111a22;
+  --surface: #121c25;
+  --surface-hi: #1a2733;
+  --ink: #d8e8ef;
+  --ink-dim: #8ca5b4;
+  --mute: #5a7282;
+  --rule: #223241;
+  --rule-hi: #3a5064;
+  --accent: #7fd8ff;
+  --accent-soft: rgba(127,216,255,0.10);
+  --sheen: rgba(127,216,255,0.08);
+  --warn: #ff9d5c;
+
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-body: 'Chakra Petch', sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  --h1-weight: 600;
+  --h1-letter: 0.01em;
+  --h1-transform: uppercase;
+  --h2-weight: 600;
+  --h2-letter: 0.02em;
+  --h2-transform: uppercase;
+
+  --radius: 3px;
+  --card-shadow: 0 0 0 1px rgba(127,216,255,0.08), 0 18px 44px rgba(0,0,0,0.5);
+}
+
+/* 07 · VERCEL — brutalist grayscale */
+:root[data-theme="vercel"] {
+  --bg: #0a0a0a;
+  --bg-elev: #111111;
+  --surface: #141414;
+  --surface-hi: #1c1c1c;
+  --ink: #ededed;
+  --ink-dim: #a0a0a0;
+  --mute: #6a6a6a;
+  --rule: #262626;
+  --rule-hi: #3a3a3a;
+  --accent: #ffffff;
+  --accent-soft: rgba(255,255,255,0.08);
+  --sheen: rgba(255,255,255,0.05);
+
+  --font-display: 'Geist', system-ui, sans-serif;
+  --font-body: 'Geist', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --h1-weight: 700;
+  --h1-letter: -0.035em;
+  --h1-transform: none;
+  --h2-weight: 700;
+  --h2-letter: -0.025em;
+  --h2-transform: none;
+
+  --radius: 8px;
+  --card-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 24px 48px rgba(0,0,0,0.6);
+}
+
+/* 08 · SUPABASE — emerald biotech */
+:root[data-theme="supabase"] {
+  --bg: #0a0f0d;
+  --bg-elev: #0f1613;
+  --surface: #111815;
+  --surface-hi: #172220;
+  --ink: #ededed;
+  --ink-dim: #9aa8a2;
+  --mute: #5a6560;
+  --rule: rgba(62,207,142,0.14);
+  --rule-hi: rgba(62,207,142,0.32);
+  --accent: #3ecf8e;
+  --accent-soft: rgba(62,207,142,0.10);
+  --sheen: rgba(62,207,142,0.10);
+
+  --font-display: 'Inter Tight', system-ui, sans-serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --h1-weight: 600;
+  --h1-letter: -0.025em;
+  --h1-transform: none;
+  --h2-weight: 600;
+  --h2-letter: -0.015em;
+  --h2-transform: none;
+
+  --radius: 8px;
+  --card-shadow: 0 0 0 1px rgba(62,207,142,0.12), 0 24px 48px rgba(0,0,0,0.5);
+}
+
+/* 09 · BLUEPRINT — architectural drafting */
+:root[data-theme="blueprint"] {
+  --bg: #f0f3ef;
+  --bg-elev: #ffffff;
+  --surface: #ffffff;
+  --surface-hi: #ffffff;
+  --ink: #0e2a3b;
+  --ink-dim: #3a5668;
+  --mute: #7a8b94;
+  --rule: #b8c8d0;
+  --rule-hi: #0e2a3b;
+  --accent: #0b6e99;
+  --accent-soft: #dff0f7;
+  --sheen: rgba(11,110,153,0.06);
+
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --h1-weight: 700;
+  --h1-letter: -0.02em;
+  --h1-transform: none;
+  --h2-weight: 700;
+  --h2-letter: -0.015em;
+  --h2-transform: none;
+
+  --radius: 0px;
+  --card-shadow: 3px 3px 0 #0e2a3b;
+}
+
+/* 10 · OBSIDIAN — dark vault with lavender */
+:root[data-theme="obsidian"] {
+  --bg: #1e1b2e;
+  --bg-elev: #262338;
+  --surface: #2a273f;
+  --surface-hi: #332f4e;
+  --ink: #e8e6f0;
+  --ink-dim: #a8a4c0;
+  --mute: #6a6585;
+  --rule: rgba(168,164,192,0.14);
+  --rule-hi: rgba(168,164,192,0.28);
+  --accent: #a88bfa;
+  --accent-soft: rgba(168,139,250,0.12);
+  --sheen: rgba(168,139,250,0.10);
+
+  --font-display: 'Inter Tight', system-ui, sans-serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --h1-weight: 600;
+  --h1-letter: -0.02em;
+  --h1-transform: none;
+  --h2-weight: 600;
+  --h2-letter: -0.015em;
+  --h2-transform: none;
+
+  --radius: 8px;
+  --card-shadow: 0 24px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(168,139,250,0.08);
+}
+
+/* 11 · PHOSPHOR — green CRT terminal */
+:root[data-theme="phosphor"] {
+  --bg: #000000;
+  --bg-elev: #001500;
+  --surface: #001a00;
+  --surface-hi: #002a00;
+  --ink: #00ff41;
+  --ink-dim: #00b82e;
+  --mute: #006619;
+  --rule: #002a00;
+  --rule-hi: #005519;
+  --accent: #00ff41;
+  --accent-soft: #001a00;
+  --sheen: rgba(0,255,65,0.10);
+
+  --font-display: 'JetBrains Mono', ui-monospace, monospace;
+  --font-body: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --h1-weight: 700;
+  --h1-letter: 0.02em;
+  --h1-transform: uppercase;
+  --h2-weight: 700;
+  --h2-letter: 0.03em;
+  --h2-transform: uppercase;
+
+  --radius: 0px;
+  --card-shadow: 0 0 20px rgba(0,255,65,0.18);
+}
+
+/* 12 · NEON — cyberpunk synthwave */
+:root[data-theme="neon"] {
+  --bg: #08001a;
+  --bg-elev: #10002a;
+  --surface: #15063a;
+  --surface-hi: #1f0a4a;
+  --ink: #f0e8ff;
+  --ink-dim: #b0a0d8;
+  --mute: #6a5a88;
+  --rule: rgba(255,60,172,0.16);
+  --rule-hi: rgba(255,60,172,0.38);
+  --accent: #ff3cac;
+  --accent-soft: rgba(255,60,172,0.10);
+  --sheen: rgba(0,229,255,0.10);
+
+  --font-display: 'Chakra Petch', sans-serif;
+  --font-body: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  --h1-weight: 700;
+  --h1-letter: 0.015em;
+  --h1-transform: uppercase;
+  --h2-weight: 600;
+  --h2-letter: 0.02em;
+  --h2-transform: uppercase;
+
+  --radius: 4px;
+  --card-shadow: 0 0 30px rgba(255,60,172,0.25), 0 0 60px rgba(0,229,255,0.08);
+}
+
+/* ============================================================
+   TAB BAR
+============================================================ */
+.tab-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--tab-h);
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: stretch;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  overflow-x: auto;
+}
+.tab-brand {
+  padding: 0 24px;
+  display: flex; align-items: center; gap: 10px;
+  border-right: 1px solid var(--rule);
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.tab-brand-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+.tab-list { display: flex; flex: 1; min-width: 0; }
+.tab {
+  flex: 1; min-width: 140px;
+  position: relative;
+  color: var(--mute);
+  padding: 0 16px;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 3px;
+  border-right: 1px solid var(--rule);
+  text-align: left;
+}
+.tab:hover { color: var(--ink-dim); background: var(--surface); }
+.tab .n { font-size: 9px; letter-spacing: 0.16em; color: var(--mute); font-weight: 500; }
+.tab .nm { font-size: 11px; color: inherit; font-weight: 600; }
+.tab.active { color: var(--ink); background: var(--surface-hi); }
+.tab.active .n { color: var(--accent); }
+.tab.active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px;
+  background: var(--accent);
+}
+
+/* ============================================================
+   THESIS STRIP
+============================================================ */
+.thesis-strip {
+  position: fixed; top: var(--tab-h); left: 0; right: 0; z-index: 99;
+  height: var(--thesis-h);
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center;
+  padding: 0 28px;
+  gap: 18px;
+  overflow: hidden;
+}
+.thesis-label {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.thesis-body {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: var(--ink-dim);
+  letter-spacing: 0;
+}
+
+/* ============================================================
+   PAGE / HERO
+============================================================ */
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 44px;
+  position: relative; z-index: 1;
+}
+
+.hero {
+  padding: 84px 0 64px;
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: var(--h1-weight);
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: var(--h1-letter);
+  text-transform: var(--h1-transform);
+  color: var(--ink);
+  max-width: 18ch;
+}
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 400;
+  color: var(--ink-dim);
+  max-width: 540px;
+  margin-top: 24px;
+  line-height: 1.58;
+}
+
+.hero-meta {
+  margin-top: 32px;
+  display: flex; gap: 32px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.hero-meta b { color: var(--ink); font-weight: 600; }
+
+/* ============================================================
+   TOOLS GRID
+============================================================ */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-bottom: 120px;
+}
+
+.tool-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.tool-card:hover {
+  border-color: var(--rule-hi);
+  background: var(--surface-hi);
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
+}
+.tool-card { transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease; }
+
+.tool-card .sheen {
+  position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(circle 300px at var(--mx, 50%) var(--my, 50%), var(--sheen), transparent 45%);
+  opacity: 0; transition: opacity 0.35s;
+}
+.tool-card:hover .sheen { opacity: 1; }
+
+.card-vis {
+  height: 160px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: var(--bg-elev);
+  border-bottom: 1px solid var(--rule);
+}
+.card-vis svg {
+  width: 74px; height: 74px;
+  color: var(--accent);
+  transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+}
+.tool-card:hover .card-vis svg { transform: scale(1.06); }
+
+.card-body {
+  padding: 24px 26px 18px;
+  flex: 1; display: flex; flex-direction: column;
+}
+.card-tag {
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-tag::before { content: ''; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; }
+
+.card-body h2 {
+  font-family: var(--font-display);
+  font-weight: var(--h2-weight);
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: var(--h2-letter);
+  text-transform: var(--h2-transform);
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.card-body p {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--ink-dim);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 26px 16px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mute);
+}
+.tool-card:hover .card-footer { color: var(--accent); }
+.card-footer-arrow { font-size: 14px; transition: transform 0.3s; }
+.tool-card:hover .card-footer-arrow { transform: translateX(4px); }
+
+.tool-card.coming-soon { opacity: 0.55; cursor: default; }
+.tool-card.coming-soon:hover {
+  transform: none;
+  border-color: var(--rule);
+  background: var(--surface);
+  box-shadow: none;
+}
+.tool-card.coming-soon:hover .sheen { opacity: 0; }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+.site-footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  padding: 12px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--mute);
+  background: var(--bg);
+  border-top: 1px solid var(--rule);
+  z-index: 50;
+}
+
+/* ============================================================
+   ANIMATED ICONS
+============================================================ */
+/* Clipboard */
+.icon-clip .line {
+  stroke-dasharray: 28; stroke-dashoffset: 28;
+  transition: stroke-dashoffset 0.7s cubic-bezier(.2,.7,.2,1);
+}
+.icon-clip .line.l2 { transition-delay: 0.08s; }
+.icon-clip .line.l3 { transition-delay: 0.16s; }
+.tool-card:hover .icon-clip .line { stroke-dashoffset: 0; }
+.icon-clip .check { stroke-dasharray: 14; stroke-dashoffset: 14; transition: stroke-dashoffset 0.5s ease 0.4s; }
+.tool-card:hover .icon-clip .check { stroke-dashoffset: 0; }
+
+/* Thermometer */
+.icon-therm .mercury {
+  transform-box: fill-box; transform-origin: bottom center;
+  transform: scaleY(0.2);
+  transition: transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+.tool-card:hover .icon-therm .mercury { transform: scaleY(1); }
+
+/* Snowflake */
+.icon-flake .flake {
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 2.5s cubic-bezier(.2,.7,.2,1);
+}
+.tool-card:hover .icon-flake .flake { transform: rotate(120deg); }
+
+/* Pump */
+.icon-pump .rotor {
+  transform-box: fill-box; transform-origin: center;
+  animation: pumpSpin 3s linear infinite;
+  animation-play-state: paused;
+}
+.tool-card:hover .icon-pump .rotor { animation-play-state: running; }
+@keyframes pumpSpin { to { transform: rotate(360deg); } }
+.icon-pump .fluid-dot { opacity: 0; }
+.tool-card:hover .icon-pump .fluid-dot { animation: fluid 2s ease-in-out infinite; }
+.icon-pump .fluid-dot:nth-of-type(2) { animation-delay: 0.66s; }
+.icon-pump .fluid-dot:nth-of-type(3) { animation-delay: 1.33s; }
+@keyframes fluid {
+  0% { opacity: 0; transform: translateX(-6px); }
+  40% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(6px); }
+}
+
+/* Vial */
+.icon-vit .bubble {
+  transform-box: fill-box; transform-origin: center;
+  opacity: 0;
+  animation: vialBubble 2.2s ease-out infinite;
+  animation-play-state: paused;
+}
+.tool-card:hover .icon-vit .bubble { animation-play-state: running; }
+.icon-vit .bubble:nth-of-type(2) { animation-delay: 0.55s; }
+.icon-vit .bubble:nth-of-type(3) { animation-delay: 1.1s; }
+.icon-vit .bubble:nth-of-type(4) { animation-delay: 1.65s; }
+@keyframes vialBubble {
+  0%   { opacity: 0; transform: translateY(0); }
+  20%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-22px); }
+}
+
+/* ============================================================
+   PER-THEME DECORATIONS
+============================================================ */
+
+/* LINEAR — subtle dot grid behind hero */
+:root[data-theme="linear"] .hero::before {
+  content: ''; position: absolute; inset: -40px -80px auto -80px; height: 340px; z-index: -1;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 70% 70% at 20% 30%, black 10%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 20% 30%, black 10%, transparent 70%);
+}
+
+/* STRIPE — soft radial light */
+:root[data-theme="stripe"] .hero::before {
+  content: ''; position: absolute; inset: -200px -200px auto -200px; height: 600px; z-index: -1;
+  background: radial-gradient(ellipse 60% 40% at 30% 40%, rgba(99,91,255,0.10), transparent 70%),
+              radial-gradient(ellipse 50% 40% at 80% 20%, rgba(0,212,255,0.08), transparent 70%);
+  pointer-events: none;
+}
+
+/* BLOOMBERG — global scan lines */
+:root[data-theme="bloomberg"] body::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 200;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0, transparent 2px,
+    rgba(255,157,10,0.035) 2px, rgba(255,157,10,0.035) 3px
+  );
+  mix-blend-mode: screen;
+}
+:root[data-theme="bloomberg"] .card-body p {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.65;
+}
+:root[data-theme="bloomberg"] .hero h1 { font-size: clamp(2.2rem, 4.8vw, 3.4rem); }
+:root[data-theme="bloomberg"] .tool-card {
+  box-shadow: 0 0 0 1px var(--rule);
+}
+
+/* MEDICAL — clean radial behind hero */
+:root[data-theme="medical"] .hero::before {
+  content: ''; position: absolute; inset: -200px -200px auto -200px; height: 600px; z-index: -1;
+  background: radial-gradient(ellipse 50% 35% at 40% 50%, rgba(0,163,154,0.09), transparent 70%);
+  pointer-events: none;
+}
+
+/* LEICA — heavy black rule under hero + corner ticks on cards */
+:root[data-theme="leica"] .hero {
+  border-bottom: 2px solid #0a0a0a;
+  padding-bottom: 32px;
+  margin-bottom: 56px;
+}
+:root[data-theme="leica"] .tool-card {
+  border-color: #0a0a0a;
+}
+:root[data-theme="leica"] .card-vis {
+  border-bottom-color: #0a0a0a;
+  background: #fafaf8;
+}
+:root[data-theme="leica"] .tool-card .corner {
+  display: block;
+  position: absolute;
+  top: 10px; right: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #8c8c8c;
+  z-index: 2;
+}
+:root[data-theme="leica"] .tool-card .dot {
+  display: block;
+  position: absolute;
+  top: 12px; left: 12px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #cc0000;
+  z-index: 2;
+}
+
+/* MISSION — grid overlay + corner crosshairs */
+:root[data-theme="mission"] body::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(127,216,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(127,216,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, black 30%, transparent 80%);
+}
+:root[data-theme="mission"] .hero::before {
+  content: ''; position: absolute; top: 20px; left: -30px;
+  width: 40px; height: 40px;
+  border-left: 1px solid var(--accent); border-top: 1px solid var(--accent);
+  opacity: 0.5;
+}
+:root[data-theme="mission"] .hero::after {
+  content: 'T−' attr(data-t);
+  position: absolute; top: 20px; right: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+/* Leica and default: hide the corner/dot decorations unless theme is leica */
+.tool-card .corner, .tool-card .dot { display: none; }
+
+/* VERCEL — subtle pixel grid behind hero */
+:root[data-theme="vercel"] .hero::before {
+  content: ''; position: absolute; inset: -20px -80px auto -80px; height: 320px; z-index: -1;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 60% 60% at 30% 40%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 30% 40%, black 20%, transparent 70%);
+}
+
+/* SUPABASE — emerald nebula behind hero */
+:root[data-theme="supabase"] .hero::before {
+  content: ''; position: absolute; inset: -140px -140px auto -140px; height: 520px; z-index: -1;
+  background: radial-gradient(ellipse 55% 40% at 25% 40%, rgba(62,207,142,0.18), transparent 70%),
+              radial-gradient(ellipse 40% 30% at 80% 20%, rgba(62,207,142,0.08), transparent 70%);
+  pointer-events: none;
+}
+
+/* BLUEPRINT — architectural grid overlay + offset drop shadow on cards */
+:root[data-theme="blueprint"] body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(11,110,153,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11,110,153,0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, black 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, black 20%, transparent 78%);
+}
+:root[data-theme="blueprint"] .tool-card { box-shadow: 4px 4px 0 #0e2a3b; border: 1.5px solid #0e2a3b; }
+:root[data-theme="blueprint"] .tool-card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 #0e2a3b; }
+:root[data-theme="blueprint"] .card-vis { border-bottom: 1.5px solid #0e2a3b; background: #fafcfa; }
+:root[data-theme="blueprint"] .card-footer { border-top: 1.5px solid #0e2a3b; }
+
+/* OBSIDIAN — lavender + blue nebula */
+:root[data-theme="obsidian"] .hero::before {
+  content: ''; position: absolute; inset: -200px -200px auto -200px; height: 600px; z-index: -1;
+  background: radial-gradient(ellipse 55% 45% at 30% 40%, rgba(168,139,250,0.20), transparent 70%),
+              radial-gradient(ellipse 40% 35% at 80% 20%, rgba(96,165,250,0.10), transparent 70%);
+  pointer-events: none;
+}
+
+/* PHOSPHOR — CRT scanlines + vignette + text glow */
+:root[data-theme="phosphor"] body::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 200;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0, transparent 2px,
+    rgba(0,255,65,0.07) 2px, rgba(0,255,65,0.07) 3px
+  );
+  mix-blend-mode: screen;
+}
+:root[data-theme="phosphor"] body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 199;
+  background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0,0,0,0.55) 100%);
+}
+:root[data-theme="phosphor"] .hero h1,
+:root[data-theme="phosphor"] .card-body h2 {
+  text-shadow: 0 0 10px rgba(0,255,65,0.5), 0 0 20px rgba(0,255,65,0.3);
+}
+:root[data-theme="phosphor"] .card-body p {
+  font-size: 0.82rem; letter-spacing: 0.02em;
+}
+
+/* NEON — text + card glow */
+:root[data-theme="neon"] .hero h1 {
+  text-shadow: 0 0 12px rgba(255,60,172,0.55), 0 0 28px rgba(255,60,172,0.3), 0 0 48px rgba(0,229,255,0.2);
+}
+:root[data-theme="neon"] .hero::before {
+  content: ''; position: absolute; inset: -200px -200px auto -200px; height: 600px; z-index: -1;
+  background: radial-gradient(ellipse 45% 35% at 25% 40%, rgba(255,60,172,0.24), transparent 70%),
+              radial-gradient(ellipse 40% 30% at 75% 30%, rgba(0,229,255,0.18), transparent 70%);
+  pointer-events: none;
+}
+:root[data-theme="neon"] .tool-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 32px rgba(255,60,172,0.35), 0 0 64px rgba(0,229,255,0.14);
+}
+:root[data-theme="neon"] .card-body h2 { text-shadow: 0 0 10px rgba(255,60,172,0.35); }
+:root[data-theme="neon"] .tab-brand-dot { box-shadow: 0 0 16px var(--accent); }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 860px) {
+  .tools-grid { grid-template-columns: 1fr; }
+  .page { padding: 0 24px; }
+  .hero { padding: 64px 0 48px; }
+  .thesis-strip { padding: 0 20px; }
+  .tab .nm { font-size: 10px; }
+  .tab .n { font-size: 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TAB BAR ============ -->
+<nav class="tab-bar">
+  <div class="tab-brand"><span class="tab-brand-dot"></span>BIOCHORIC</div>
+  <div class="tab-list">
+    <button class="tab" data-set="linear"><span class="n">01</span><span class="nm">Linear</span></button>
+    <button class="tab" data-set="stripe"><span class="n">02</span><span class="nm">Stripe</span></button>
+    <button class="tab" data-set="bloomberg"><span class="n">03</span><span class="nm">Bloomberg</span></button>
+    <button class="tab" data-set="medical"><span class="n">04</span><span class="nm">Medical</span></button>
+    <button class="tab" data-set="leica"><span class="n">05</span><span class="nm">Leica</span></button>
+    <button class="tab" data-set="mission"><span class="n">06</span><span class="nm">Mission</span></button>
+    <button class="tab" data-set="vercel"><span class="n">07</span><span class="nm">Vercel</span></button>
+    <button class="tab" data-set="supabase"><span class="n">08</span><span class="nm">Supabase</span></button>
+    <button class="tab" data-set="blueprint"><span class="n">09</span><span class="nm">Blueprint</span></button>
+    <button class="tab" data-set="obsidian"><span class="n">10</span><span class="nm">Obsidian</span></button>
+    <button class="tab" data-set="phosphor"><span class="n">11</span><span class="nm">Phosphor</span></button>
+    <button class="tab" data-set="neon"><span class="n">12</span><span class="nm">Neon</span></button>
+  </div>
+</nav>
+
+<!-- ============ THESIS STRIP ============ -->
+<div class="thesis-strip">
+  <span class="thesis-label" id="thesis-label">&#9670; THESIS</span>
+  <span class="thesis-body" id="thesis-body">—</span>
+</div>
+
+<!-- ============ PAGE ============ -->
+<div class="page">
+  <section class="hero" data-t="000:00:00">
+    <div class="hero-eyebrow">Internal Tools &middot; v2026.04</div>
+    <h1 id="hero-title">Biochoric Lab Toolbox</h1>
+    <p class="hero-sub" id="hero-sub">Every tool your bench needs — inventory, thermodynamics, live experiments, perfusion control — gathered in one place.</p>
+    <div class="hero-meta">
+      <div>5 Tools</div>
+      <div>3 Live</div>
+      <div>1 In Dev</div>
+    </div>
+  </section>
+
+  <div class="tools-grid">
+
+    <!-- INVENTORY -->
+    <a class="tool-card" href="https://biochoric-inventory-tracker-production.up.railway.app/">
+      <div class="sheen"></div>
+      <span class="dot"></span><span class="corner">BCH-001</span>
+      <div class="card-vis">
+        <svg class="icon-clip" viewBox="0 0 80 80" fill="none">
+          <rect x="22" y="14" width="36" height="52" rx="3" stroke="currentColor" stroke-width="2"/>
+          <rect x="32" y="10" width="16" height="8" rx="2" stroke="currentColor" stroke-width="2" fill="var(--bg-elev)"/>
+          <line class="line l1" x1="29" y1="30" x2="51" y2="30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line class="line l2" x1="29" y1="40" x2="51" y2="40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line class="line l3" x1="29" y1="50" x2="43" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path class="check" d="M46 48l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Inventory</div>
+        <h2>Inventory Tracker</h2>
+        <p>Chemical and supply inventory across all lab locations.</p>
+      </div>
+      <div class="card-footer"><span>Open app</span><span class="card-footer-arrow">&rarr;</span></div>
+    </a>
+
+    <!-- KIDNEY SUPERCOOLING -->
+    <a class="tool-card" href="https://kidney-supercooling-dashboard.up.railway.app/">
+      <div class="sheen"></div>
+      <span class="dot"></span><span class="corner">BCH-002</span>
+      <div class="card-vis">
+        <svg class="icon-therm" viewBox="0 0 80 80" fill="none">
+          <rect x="34" y="10" width="12" height="48" rx="6" stroke="currentColor" stroke-width="2" fill="var(--bg-elev)"/>
+          <circle cx="40" cy="62" r="10" stroke="currentColor" stroke-width="2" fill="var(--bg-elev)"/>
+          <circle cx="40" cy="62" r="7" fill="currentColor"/>
+          <rect class="mercury" x="37" y="16" width="6" height="44" rx="3" fill="currentColor"/>
+          <line x1="50" y1="20" x2="55" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="50" y1="32" x2="55" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="50" y1="44" x2="55" y2="44" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Live Monitor</div>
+        <h2>Kidney Supercooling</h2>
+        <p>Real-time monitoring for kidney supercooling experiments.</p>
+      </div>
+      <div class="card-footer"><span>Open app</span><span class="card-footer-arrow">&rarr;</span></div>
+    </a>
+
+    <!-- CRYO TOOLBOX -->
+    <a class="tool-card" href="https://biochoric-cryo-toolbox-production.up.railway.app/">
+      <div class="sheen"></div>
+      <span class="dot"></span><span class="corner">BCH-003</span>
+      <div class="card-vis">
+        <svg class="icon-flake" viewBox="0 0 80 80" fill="none">
+          <g class="flake" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="40" y1="12" x2="40" y2="68"/>
+            <line x1="16" y1="26" x2="64" y2="54"/>
+            <line x1="16" y1="54" x2="64" y2="26"/>
+            <path d="M40 18l-5 5m5-5l5 5"/>
+            <path d="M40 62l-5-5m5 5l5-5"/>
+            <path d="M56 28l-6 1m6-1l-1 6"/>
+            <path d="M24 52l6-1m-6 1l1-6"/>
+            <path d="M24 28l6 1m-6-1l1 6"/>
+            <path d="M56 52l-6-1m6 1l-1-6"/>
+            <circle cx="40" cy="40" r="3" fill="currentColor" stroke="none"/>
+          </g>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Thermodynamics</div>
+        <h2>Cryo Toolbox</h2>
+        <p>Water activity, osmolality, and liquidus curves for aqueous cryoprotectant solutions.</p>
+      </div>
+      <div class="card-footer"><span>Open app</span><span class="card-footer-arrow">&rarr;</span></div>
+    </a>
+
+    <!-- FLOWBOT-K -->
+    <a class="tool-card" href="https://github.com/tony-biochoric/FlowBot-K">
+      <div class="sheen"></div>
+      <span class="dot"></span><span class="corner">BCH-004</span>
+      <div class="card-vis">
+        <svg class="icon-pump" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="18" stroke="currentColor" stroke-width="2"/>
+          <g class="rotor">
+            <line x1="40" y1="24" x2="40" y2="56" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="24" y1="40" x2="56" y2="40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="40" cy="40" r="4" fill="currentColor"/>
+          </g>
+          <path d="M6 40h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M58 40h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <circle class="fluid-dot" cx="14" cy="40" r="2" fill="currentColor"/>
+          <circle class="fluid-dot" cx="14" cy="40" r="2" fill="currentColor"/>
+          <circle class="fluid-dot" cx="14" cy="40" r="2" fill="currentColor"/>
+          <path d="M66 40l4-3m-4 3l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Perfusion</div>
+        <h2>FlowBot-K</h2>
+        <p>Dual-pump gradient CPA perfusion control for organ cryopreservation.</p>
+      </div>
+      <div class="card-footer"><span>Open repo</span><span class="card-footer-arrow">&rarr;</span></div>
+    </a>
+
+    <!-- VITRIFICATION (coming soon) -->
+    <a class="tool-card coming-soon" href="#" aria-disabled="true">
+      <div class="sheen"></div>
+      <span class="dot"></span><span class="corner">BCH-005</span>
+      <div class="card-vis">
+        <svg class="icon-vit" viewBox="0 0 80 80" fill="none">
+          <rect x="28" y="14" width="24" height="42" rx="3" stroke="currentColor" stroke-width="2" fill="var(--bg-elev)"/>
+          <rect x="32" y="10" width="16" height="6" rx="2" fill="currentColor" opacity="0.4"/>
+          <rect x="30" y="34" width="20" height="20" rx="2" fill="currentColor" opacity="0.18"/>
+          <circle class="bubble" cx="36" cy="48" r="1.6" fill="currentColor"/>
+          <circle class="bubble" cx="42" cy="50" r="1.2" fill="currentColor"/>
+          <circle class="bubble" cx="46" cy="46" r="1.8" fill="currentColor"/>
+          <circle class="bubble" cx="38" cy="44" r="1" fill="currentColor"/>
+          <path d="M40 60v12m-4-4l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-tag">In Development</div>
+        <h2>Vitrification Dashboard</h2>
+        <p>CPA loading protocols, hemodynamic tracking, and organ vitrification monitoring.</p>
+      </div>
+      <div class="card-footer"><span>Coming soon</span><span class="card-footer-arrow" style="opacity:0.3;">&#8987;</span></div>
+    </a>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div>Biochoric &middot; Internal</div>
+  <div id="clock">—</div>
+</footer>
+
+<script>
+  // ==========================================================
+  // THEME DATA
+  // ==========================================================
+  const THEMES = {
+    linear: {
+      label: '01 · LINEAR',
+      thesis: 'Near-black, single electric accent, Geist sans. A dev-tool calm — nothing extra, nothing decorative. The shape of a well-engineered product.',
+      eyebrow: 'Internal Tools · v2026.04',
+      title: 'Biochoric Lab Toolbox',
+      sub: 'Every tool your bench needs — inventory, thermodynamics, live experiments, perfusion control — gathered in one place.'
+    },
+    stripe: {
+      label: '02 · STRIPE',
+      thesis: 'Navy-on-white, generous whitespace, soft indigo accent, Inter Tight. Feels like a professional SaaS dashboard — polished but unassuming.',
+      eyebrow: 'Internal Tools · v2026.04',
+      title: 'The Biochoric Lab Toolbox',
+      sub: 'Every tool your bench needs — inventory, thermodynamics, live experiments, perfusion control — gathered in one place.'
+    },
+    bloomberg: {
+      label: '03 · BLOOMBERG',
+      thesis: 'Amber phosphor on pure black, JetBrains Mono throughout, scan lines, sharp corners. A workstation — dense, direct, no ornament.',
+      eyebrow: 'INTERNAL // TOOLBOX // V2026.04',
+      title: 'BIOCHORIC LAB TOOLBOX',
+      sub: '> INVENTORY / THERMODYNAMICS / LIVE EXPERIMENTS / PERFUSION CONTROL. ALL SYSTEMS NOMINAL.'
+    },
+    medical: {
+      label: '04 · MEDICAL',
+      thesis: 'Siemens Healthineers vibe — cool whites, restrained teal, IBM Plex Sans, generous rounding. Hospital-grade equipment calm.',
+      eyebrow: 'Laboratory Suite · v2026.04',
+      title: 'Biochoric Laboratory Suite',
+      sub: 'Inventory, thermodynamics, live experimentation, and perfusion control for cryopreservation research.'
+    },
+    leica: {
+      label: '05 · LEICA',
+      thesis: 'Pure white, heavy black, single signal-red dot. Oversized geometric sans, sharp corners, serial numbers. A precision instrument.',
+      eyebrow: 'Biochoric / Instruments',
+      title: 'Lab Instruments',
+      sub: 'A calibrated set of tools for cryobiology research. Inventory, thermodynamics, supercooling, perfusion.'
+    },
+    mission: {
+      label: '06 · MISSION CONTROL',
+      thesis: 'Charcoal blue, pale cyan + muted orange, Chakra Petch, technical grid. Feels like a console in a control room.',
+      eyebrow: 'BIOCHORIC MISSION · T−000:00:00',
+      title: 'MISSION CONTROL',
+      sub: 'ALL LABORATORY SYSTEMS — INVENTORY, THERMODYNAMICS, LIVE EXPERIMENTS, PERFUSION — NOMINAL AND ONLINE.'
+    },
+    vercel: {
+      label: '07 · VERCEL',
+      thesis: 'Pure grayscale, Geist sans, white-on-black. Brutalist dev minimalism — the color is the absence of color.',
+      eyebrow: 'Internal Tools · v2026.04',
+      title: 'Biochoric Lab Toolbox',
+      sub: 'Every tool your bench needs — inventory, thermodynamics, live experiments, perfusion control — gathered in one place.'
+    },
+    supabase: {
+      label: '08 · SUPABASE',
+      thesis: 'Near-black with a single vivid emerald accent. Inter Tight, bright data-viz feel — biotech in open-source clothing.',
+      eyebrow: 'Internal Tools · v2026.04',
+      title: 'Biochoric Lab Toolbox',
+      sub: 'Inventory, thermodynamics, live experiments, and perfusion control — built for cryopreservation research.'
+    },
+    blueprint: {
+      label: '09 · BLUEPRINT',
+      thesis: 'Paper-cream background with deep blueprint-blue ink, technical drawing grid, offset drop-shadow cards. Drafting-table feel.',
+      eyebrow: 'Biochoric / Drawing Set 01',
+      title: 'Laboratory Toolkit',
+      sub: 'A set of instruments drafted for cryobiology research — inventory, thermodynamics, supercooling, perfusion.'
+    },
+    obsidian: {
+      label: '10 · OBSIDIAN',
+      thesis: 'Deep violet-grey vault with lavender accent. Calm and contemplative — knowledge-base aesthetic turned toward a lab.',
+      eyebrow: 'Internal Tools · v2026.04',
+      title: 'Biochoric Lab Toolbox',
+      sub: 'Inventory, thermodynamics, live experiments, and perfusion — in one quiet workspace.'
+    },
+    phosphor: {
+      label: '11 · PHOSPHOR',
+      thesis: 'Pure black, P1 green phosphor, mono throughout, CRT scan lines and vignette. 1970s terminal energy — not ironic, just efficient.',
+      eyebrow: '> BIOCHORIC / TOOLBOX / V2026.04',
+      title: 'BIOCHORIC LAB TOOLBOX',
+      sub: '> INVENTORY // THERMO // LIVE EXPERIMENTS // PERFUSION. ALL SYSTEMS ONLINE.'
+    },
+    neon: {
+      label: '12 · NEON',
+      thesis: 'Deep purple-black with magenta + cyan neon glows. Chakra Petch display, Space Mono data. Synthwave — the lab at 2 AM.',
+      eyebrow: '// BIOCHORIC // v2026.04',
+      title: 'LAB TOOLBOX',
+      sub: '// INVENTORY // THERMODYNAMICS // LIVE EXPERIMENTS // PERFUSION //'
+    }
+  };
+
+  // ==========================================================
+  // THEME SWITCH
+  // ==========================================================
+  const root = document.documentElement;
+  const tabs = document.querySelectorAll('.tab');
+  const thesisLabel = document.getElementById('thesis-label');
+  const thesisBody = document.getElementById('thesis-body');
+  const heroTitle = document.getElementById('hero-title');
+  const heroSub = document.getElementById('hero-sub');
+  const heroEyebrow = document.querySelector('.hero-eyebrow');
+
+  function applyTheme(name) {
+    if (!THEMES[name]) name = 'linear';
+    root.setAttribute('data-theme', name);
+    const t = THEMES[name];
+    thesisLabel.textContent = '◆ ' + t.label;
+    thesisBody.textContent = t.thesis;
+    heroTitle.textContent = t.title;
+    heroSub.textContent = t.sub;
+    heroEyebrow.lastChild.textContent = ' ' + t.eyebrow;
+    tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.set === name));
+    if (location.hash.slice(1) !== name) {
+      history.replaceState(null, '', '#' + name);
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => applyTheme(tab.dataset.set));
+  });
+
+  // Initial theme from hash or default
+  const initial = location.hash.slice(1) || 'linear';
+  applyTheme(initial);
+
+  // Keyboard: 1-9 / 0 / - / = switches theme
+  document.addEventListener('keydown', e => {
+    const map = ['linear','stripe','bloomberg','medical','leica','mission','vercel','supabase','blueprint','obsidian','phosphor','neon'];
+    if (e.key === '0') { applyTheme(map[9]); return; }
+    if (e.key === '-') { applyTheme(map[10]); return; }
+    if (e.key === '=') { applyTheme(map[11]); return; }
+    const k = parseInt(e.key, 10);
+    if (k >= 1 && k <= 9) applyTheme(map[k-1]);
+  });
+
+  // ==========================================================
+  // CURSOR SHEEN (per card, cheap)
+  // ==========================================================
+  document.querySelectorAll('.tool-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (((e.clientX - r.left) / r.width) * 100).toFixed(1) + '%');
+      card.style.setProperty('--my', (((e.clientY - r.top) / r.height) * 100).toFixed(1) + '%');
+    });
+  });
+
+  // ==========================================================
+  // CLOCK + MISSION T-counter
+  // ==========================================================
+  const clock = document.getElementById('clock');
+  const hero = document.querySelector('.hero');
+  const start = Date.now();
+  function tick() {
+    const d = new Date();
+    const hh = String(d.getHours()).padStart(2,'0');
+    const mm = String(d.getMinutes()).padStart(2,'0');
+    const ss = String(d.getSeconds()).padStart(2,'0');
+    clock.textContent = d.toISOString().slice(0,10) + ' · ' + hh + ':' + mm + ':' + ss;
+
+    const elapsed = Math.floor((Date.now() - start) / 1000);
+    const eh = String(Math.floor(elapsed/3600)).padStart(3,'0');
+    const em = String(Math.floor((elapsed%3600)/60)).padStart(2,'0');
+    const es = String(elapsed%60).padStart(2,'0');
+    hero.setAttribute('data-t', eh + ':' + em + ':' + es);
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>

@@ -1429,16 +1429,10 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 
   <div class="tools-grid">
 
-    {% for tool in tools %}
-    <a class="tool-card{% if tool.coming_soon %} coming-soon{% endif %}"
-       {% if not tool.coming_soon %}data-spark="{{ tool.slug }}"{% endif %}
-       data-accent="{{ tool.slug }}"
-       href="{{ tool.url }}"
-       {% if tool.coming_soon %}aria-disabled="true"{% endif %}
-       {% if tool.external %}target="_blank" rel="noopener"{% endif %}>
+    <!-- INVENTORY -->
+    <a class="tool-card" data-spark="inventory" data-accent="inventory" href="https://biochoric-inventory-tracker-production.up.railway.app/">
       <div class="sheen"></div>
       <div class="card-vis">
-        {% if tool.icon == "clipboard" %}
         <svg class="icon-clip" viewBox="0 0 80 80" fill="none">
           <rect x="22" y="14" width="36" height="52" rx="3" stroke="currentColor" stroke-width="2"/>
           <rect x="32" y="10" width="16" height="8" rx="2" stroke="currentColor" stroke-width="2" fill="var(--bg-elev)"/>
@@ -1447,7 +1441,30 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
           <line class="line l3" x1="29" y1="50" x2="43" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           <path class="check" d="M46 48l3 3 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        {% elif tool.icon == "thermometer" %}
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Inventory</div>
+        <h2>Inventory Tracker</h2>
+        <p>Chemical and supply inventory across all lab locations.</p>
+      </div>
+      <div class="card-spark">
+        <div class="spark-label">
+          <span class="spark-name">—</span>
+          <span class="spark-val"><span class="spark-val-num">—</span><span class="spark-val-unit unit"></span></span>
+        </div>
+        <svg class="spark-svg" viewBox="0 0 220 40" preserveAspectRatio="none">
+          <path class="spark-fill" d=""/>
+          <path class="spark-line" d=""/>
+          <circle class="spark-dot" cx="0" cy="0" r="2.6"/>
+        </svg>
+      </div>
+      <div class="card-footer"><span>Open app</span><span class="card-footer-arrow">&rarr;</span></div>
+    </a>
+
+    <!-- KIDNEY -->
+    <a class="tool-card" data-spark="kidney" data-accent="kidney" href="https://kidney-supercooling-dashboard.up.railway.app/">
+      <div class="sheen"></div>
+      <div class="card-vis">
         <svg class="icon-therm" viewBox="0 0 80 80" fill="none">
           <rect x="34" y="10" width="12" height="48" rx="6" stroke="currentColor" stroke-width="2" fill="var(--bg-elev)"/>
           <circle cx="40" cy="62" r="10" stroke="currentColor" stroke-width="2" fill="var(--bg-elev)"/>
@@ -1457,7 +1474,30 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
           <line x1="50" y1="32" x2="55" y2="32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           <line x1="50" y1="44" x2="55" y2="44" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
         </svg>
-        {% elif tool.icon == "snowflake" %}
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Live Monitor</div>
+        <h2>Kidney Supercooling</h2>
+        <p>Real-time monitoring for kidney supercooling experiments.</p>
+      </div>
+      <div class="card-spark">
+        <div class="spark-label">
+          <span class="spark-name">—</span>
+          <span class="spark-val"><span class="spark-val-num">—</span><span class="spark-val-unit unit"></span></span>
+        </div>
+        <svg class="spark-svg" viewBox="0 0 220 40" preserveAspectRatio="none">
+          <path class="spark-fill" d=""/>
+          <path class="spark-line" d=""/>
+          <circle class="spark-dot" cx="0" cy="0" r="2.6"/>
+        </svg>
+      </div>
+      <div class="card-footer"><span>Open app</span><span class="card-footer-arrow">&rarr;</span></div>
+    </a>
+
+    <!-- CRYO -->
+    <a class="tool-card" data-spark="cryo" data-accent="cryo" href="https://biochoric-cryo-toolbox-production.up.railway.app/">
+      <div class="sheen"></div>
+      <div class="card-vis">
         <svg class="icon-flake" viewBox="0 0 80 80" fill="none">
           <g class="flake" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <line x1="40" y1="12" x2="40" y2="68"/>
@@ -1472,7 +1512,30 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
             <circle cx="40" cy="40" r="3" fill="currentColor" stroke="none"/>
           </g>
         </svg>
-        {% elif tool.icon == "pump" %}
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Thermodynamics</div>
+        <h2>Cryo Toolbox</h2>
+        <p>Water activity, osmolality, and liquidus curves for aqueous cryoprotectant solutions.</p>
+      </div>
+      <div class="card-spark">
+        <div class="spark-label">
+          <span class="spark-name">—</span>
+          <span class="spark-val"><span class="spark-val-num">—</span><span class="spark-val-unit unit"></span></span>
+        </div>
+        <svg class="spark-svg" viewBox="0 0 220 40" preserveAspectRatio="none">
+          <path class="spark-fill" d=""/>
+          <path class="spark-line" d=""/>
+          <circle class="spark-dot" cx="0" cy="0" r="2.6"/>
+        </svg>
+      </div>
+      <div class="card-footer"><span>Open app</span><span class="card-footer-arrow">&rarr;</span></div>
+    </a>
+
+    <!-- FLOWBOT -->
+    <a class="tool-card" data-spark="flowbot" data-accent="flowbot" href="https://github.com/tony-biochoric/FlowBot-K">
+      <div class="sheen"></div>
+      <div class="card-vis">
         <svg class="icon-pump" viewBox="0 0 80 80" fill="none">
           <circle cx="40" cy="40" r="18" stroke="currentColor" stroke-width="2"/>
           <g class="rotor">
@@ -1487,7 +1550,30 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
           <circle class="fluid-dot" cx="14" cy="40" r="2" fill="currentColor"/>
           <path d="M66 40l4-3m-4 3l4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        {% elif tool.icon == "vit" %}
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Perfusion</div>
+        <h2>FlowBot-K</h2>
+        <p>Dual-pump gradient CPA perfusion control for organ cryopreservation.</p>
+      </div>
+      <div class="card-spark">
+        <div class="spark-label">
+          <span class="spark-name">—</span>
+          <span class="spark-val"><span class="spark-val-num">—</span><span class="spark-val-unit unit"></span></span>
+        </div>
+        <svg class="spark-svg" viewBox="0 0 220 40" preserveAspectRatio="none">
+          <path class="spark-fill" d=""/>
+          <path class="spark-line" d=""/>
+          <circle class="spark-dot" cx="0" cy="0" r="2.6"/>
+        </svg>
+      </div>
+      <div class="card-footer"><span>Open repo</span><span class="card-footer-arrow">&rarr;</span></div>
+    </a>
+
+    <!-- VITRIFICATION -->
+    <a class="tool-card coming-soon" data-accent="vit" href="#" aria-disabled="true">
+      <div class="sheen"></div>
+      <div class="card-vis">
         <svg class="icon-vit" viewBox="0 0 80 80" fill="none">
           <rect x="28" y="14" width="24" height="42" rx="3" stroke="currentColor" stroke-width="2" fill="var(--bg-elev)"/>
           <rect x="32" y="10" width="16" height="6" rx="2" fill="currentColor" opacity="0.4"/>
@@ -1498,37 +1584,15 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
           <circle class="bubble" cx="38" cy="44" r="1" fill="currentColor"/>
           <path d="M40 60v12m-4-4l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        {% endif %}
       </div>
       <div class="card-body">
-        <div class="card-tag">{{ tool.tag }}</div>
-        <h2>{{ tool.name }}</h2>
-        <p>{{ tool.description }}</p>
+        <div class="card-tag">In Development</div>
+        <h2>Vitrification Dashboard</h2>
+        <p>CPA loading protocols, hemodynamic tracking, and organ vitrification monitoring.</p>
       </div>
-      {% if tool.coming_soon %}
-      <div class="card-spark-empty">&mdash; AWAITING FIRST DATA &mdash;</div>
-      {% else %}
-      <div class="card-spark">
-        <div class="spark-label">
-          <span class="spark-name">&mdash;</span>
-          <span class="spark-val"><span class="spark-val-num">&mdash;</span><span class="spark-val-unit unit"></span></span>
-        </div>
-        <svg class="spark-svg" viewBox="0 0 220 40" preserveAspectRatio="none">
-          <path class="spark-fill" d=""/>
-          <path class="spark-line" d=""/>
-          <circle class="spark-dot" cx="0" cy="0" r="2.6"/>
-        </svg>
-      </div>
-      {% endif %}
-      <div class="card-footer">
-        {% if tool.coming_soon %}
-        <span>Coming soon</span><span class="card-footer-arrow" style="opacity:0.3;">&#8987;</span>
-        {% else %}
-        <span>Open {% if tool.external %}repo{% else %}app{% endif %}</span><span class="card-footer-arrow">&rarr;</span>
-        {% endif %}
-      </div>
+      <div class="card-spark-empty">— AWAITING FIRST DATA —</div>
+      <div class="card-footer"><span>Coming soon</span><span class="card-footer-arrow" style="opacity:0.3;">&#8987;</span></div>
     </a>
-    {% endfor %}
 
   </div>
 </div>
